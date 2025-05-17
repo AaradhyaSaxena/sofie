@@ -1,6 +1,9 @@
 
 # TMVA SOFIE
 
+## Devin:
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/AaradhyaSaxena/sofie)
+
 ROOT/TMVA SOFIE (___System for Optimized Fast Inference code Emit___) generates C++ functions easily invokable for the fast inference of trained neural network models. It takes ONNX model files as inputs and produces C++ header files that can be included and utilized in a “plug-and-go” style.
 
 This is a new development in TMVA and is currently in early experimental stage. Bug reports and suggestions for improvements are [warmly welcomed](mailto:Lorenzo.Moneta@cern.ch).
@@ -68,106 +71,6 @@ model.Generate(Options::kNoWeightFile);
 
 Other such options includes `Options::kNoSession` (for not generating the Session class, and instead keeping the infer function independent).
 SOFIE also supports generating inference code with RDataFrame as inputs, refer to the tutorials below for examples.
-
-## Supported ONNX operators
-
-Here is the updated list of supported ONNX operators. You can obtain this list by doing
-```cpp
-using namespace TMVA::Experimental;
-SOFIE::RModelParser_ONNX parser;
-std::vector<std::string> supportedOperators = parser.GetRegisteredOperators();
-```
-
-- [x] Abs
-- [x] Add
-- [x] AveragePool
-- [x] BatchNormalization
-- [x] Cast
-- [x] Concat
-- [x] Constant
-- [x] ConstantOfShape
-- [x] Conv
-- [x] ConvTranspose
-- [x] Cos
-- [x] Div
-- [x] Einsum
-- [x] Elu
-- [x] Equal
-- [x] Erf
-- [x] Exp
-- [x] Expand
-- [x] EyeLike
-- [x] Flatten
-- [x] GRU
-- [x] Gather
-- [x] Gemm
-- [x] GlobalAveragePool
-- [x] Greater
-- [x] GreaterOrEqual
-- [x] GRU
-- [x] Identity
-- [x] If
-- [x] LSTM
-- [x] LayerNormalization
-- [x] LeakyRelu
-- [x] Less
-- [x] LessOrEqual
-- [x] Log
-- [x] MatMul
-- [x] Max
-- [x] MaxPool
-- [x] Mean
-- [x] Min
-- [x] Mul
-- [x] Neg
-- [x] Pad
-- [x] Pow
-- [x] RNN
-- [x] RandomNormal
-- [x] RandomNormalLike
-- [x] RandomUniform
-- [x] RandomUniformLike
-- [x] Range
-- [x] Reciprocal
-- [x] ReduceMean
-- [x] ReduceProd
-- [x] ReduceSum
-- [x] ReduceSumSquare
-- [x] Relu
-- [x] Reshape
-- [x] ScatterElements
-- [x] Selu
-- [x] Shape
-- [x] Sigmoid
-- [x] Sin
-- [x] Slice
-- [x] Softmax
-- [x] Split
-- [x] Sqrt
-- [x] Squeeze
-- [x] Sub
-- [x] Sum
-- [x] Tanh
-- [x] Tile
-- [x] TopK
-- [x] Transpose
-- [x] Unsqueeze
-- [x] Where
-
-The above operators are supported for tensors of the following types:
-
-- [x] float
-- [x] double
-- [x] int32
-- [x] int64
-- [x] bool (for comparison operators)
-
-You can also check your model whether all operators are implemented by doing the following:
-```c++
-using namespace TMVA::Experimental;
-SOFIE::RModelParser_ONNX parser;
-parser.CheckModel("example_model.ONNX");
-```
 
 
 
